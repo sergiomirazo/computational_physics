@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simulación del Movimiento del Péndulo</title>
+  <style>
+    body {
+      background: black;
+    }
+    #circle {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      
+      background-color: #f00;
+      /*background-image: url(/assets/icons/ARJEANOS.png);*/
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+  <div id="circle" style="margin-left: 200px; margin-top:200px"></div>
+  
+
+<script>
+  var x = 100;
+  var y = 100;
+  var theta = 0;
+  var t = 0;
+  var L = 200;
+  var g = 9.81;
+  var w = Math.sqrt(g/L);
+  setInterval(() => {
+    t += 100;
+    theta = 8 * Math.sin(w*t / 1000);
+    x = -L* Math.cos(theta);
+    y = L* Math.sin(theta);
+    document.getElementById("circle").style.left = x + "px";
+    document.getElementById("circle").style.top = y + "px";
+    
+  }, 100);
+</script>
+</body>
+</html>
